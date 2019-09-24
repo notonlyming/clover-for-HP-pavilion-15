@@ -67,7 +67,7 @@
 				<key>AddDTGP</key>
 				<false/>
 				<key>AddHDMI</key>
-				<true/>
+				<false/>
 				<key>AddIMEI</key>
 				<false/>
 				<key>AddMCHC</key>
@@ -75,19 +75,19 @@
 				<key>AddPNLF</key>
 				<true/>
 				<key>DeleteUnused</key>
-				<true/>
+				<false/>
 				<key>FakeLPC</key>
 				<false/>
 				<key>FixACST</key>
-				<true/>
+				<false/>
 				<key>FixADP1</key>
-				<true/>
+				<false/>
 				<key>FixAirport</key>
 				<false/>
 				<key>FixDarwin</key>
 				<false/>
 				<key>FixDarwin7</key>
-				<true/>
+				<false/>
 				<key>FixDisplay</key>
 				<false/>
 				<key>FixFirewire</key>
@@ -107,11 +107,11 @@
 				<key>FixMutex</key>
 				<false/>
 				<key>FixRTC</key>
-				<true/>
+				<false/>
 				<key>FixRegions</key>
-				<true/>
+				<false/>
 				<key>FixS3D</key>
-				<true/>
+				<false/>
 				<key>FixSATA</key>
 				<false/>
 				<key>FixSBUS</key>
@@ -119,58 +119,16 @@
 				<key>FixShutdown</key>
 				<false/>
 				<key>FixTMR</key>
-				<true/>
+				<false/>
 				<key>FixUSB</key>
 				<true/>
 				<key>FixWAK</key>
-				<true/>
+				<false/>
 			</dict>
 			<key>Name</key>
 			<string>DSDT.aml</string>
 			<key>Patches</key>
 			<array>
-				<dict>
-					<key>Comment</key>
-					<string>Add _SUN property for GIGE</string>
-					<key>Disabled</key>
-					<true/>
-					<key>Find</key>
-					<data>
-					UFhTWAhfQURSAAhfUFJXEgYC
-					</data>
-					<key>Replace</key>
-					<data>
-					UFhTWAhfQURSAAhfU1VOCgQIX1BSVxIGAg==
-					</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
-					<string>Rename GFX0 to IGPU</string>
-					<key>Disabled</key>
-					<false/>
-					<key>Find</key>
-					<data>
-					R0ZYMA==
-					</data>
-					<key>Replace</key>
-					<data>
-					SUdQVQ==
-					</data>
-				</dict>
-				<dict>
-					<key>Comment</key>
-					<string>Rename HDEF to AZAL</string>
-					<key>Disabled</key>
-					<true/>
-					<key>Find</key>
-					<data>
-					SERFRg==
-					</data>
-					<key>Replace</key>
-					<data>
-					QVpBTA==
-					</data>
-				</dict>
 				<dict>
 					<key>Comment</key>
 					<string>Rename oem _DSM to ZDSM</string>
@@ -187,16 +145,30 @@
 				</dict>
 				<dict>
 					<key>Comment</key>
-					<string>Rename HECI to IMEI</string>
+					<string>change AZAL to HDEF</string>
 					<key>Disabled</key>
 					<false/>
 					<key>Find</key>
 					<data>
-					SEVDSQ==
+					QVpBTA==
 					</data>
 					<key>Replace</key>
 					<data>
-					SU1FSQ==
+					SERFRg==
+					</data>
+				</dict>
+				<dict>
+					<key>Comment</key>
+					<string>change HDAS to HDEF</string>
+					<key>Disabled</key>
+					<false/>
+					<key>Find</key>
+					<data>
+					SERBUw==
+					</data>
+					<key>Replace</key>
+					<data>
+					SERFRg==
 					</data>
 				</dict>
 			</array>
@@ -618,6 +590,8 @@
 			<string>12</string>
 			<key>AFGLowPowerState</key>
 			<false/>
+			<key>Inject</key>
+			<string>No</string>
 			<key>ResetHDA</key>
 			<false/>
 		</dict>
@@ -625,6 +599,63 @@
 		<false/>
 		<key>LANInjection</key>
 		<false/>
+		<key>Properties</key>
+		<dict>
+			<key>PciRoot(0x0)/Pci(0x1f,0x3)</key>
+			<dict>
+				<key>AAPL,slot-name</key>
+				<string>Internal@0,31,3</string>
+				<key>device-id</key>
+				<data>
+				cKEAAA==
+				</data>
+				<key>device_type</key>
+				<string>Audio device</string>
+				<key>hda-gfx</key>
+				<string>onboard-1</string>
+				<key>layout-id</key>
+				<data>
+				FQAAAA==
+				</data>
+				<key>model</key>
+				<string>Sunrise Point-LP HD Audio</string>
+			</dict>
+			<key>PciRoot(0x0)/Pci(0x2,0x0)</key>
+			<dict>
+				<key>AAPL,ig-platform-id</key>
+				<data>
+				AAAWWQ==
+				</data>
+				<key>AAPL,slot-name</key>
+				<string>Internal@0,2,0</string>
+				<key>device-id</key>
+				<data>
+				FlkAAA==
+				</data>
+				<key>device_type</key>
+				<string>VGA compatible controller</string>
+				<key>enable-hdmi20</key>
+				<data>
+				AQAAAA==
+				</data>
+				<key>framebuffer-patch-enable</key>
+				<data>
+				AQAAAA==
+				</data>
+				<key>framebuffer-unifiedmem</key>
+				<data>
+				AAAAgA==
+				</data>
+				<key>hda-gfx</key>
+				<string>onboard-1</string>
+				<key>model</key>
+				<string>Intel HD Graphics 620</string>
+			</dict>
+		</dict>
+		<key>SetIntelBacklight</key>
+		<true/>
+		<key>SetIntelMaxBacklight</key>
+		<true/>
 		<key>USB</key>
 		<dict>
 			<key>AddClockID</key>
@@ -853,10 +884,8 @@
 		<key>Inject</key>
 		<dict>
 			<key>Intel</key>
-			<true/>
+			<false/>
 		</dict>
-		<key>ig-platform-id</key>
-		<string>0x3EA00000</string>
 	</dict>
 	<key>KernelAndKextPatches</key>
 	<dict>
